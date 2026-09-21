@@ -55,7 +55,7 @@ Discovered by inspecting all 5 provided CSVs directly (not told in advance):
 
 ## 4. Live URL & running locally
 
-**Live URL:** *(fill in once API Gateway URL is confirmed working)*
+**Live URL:** https://earthre-case-study-frontend.vercel.app/upload
 
 **Running locally:**
 
