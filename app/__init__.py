@@ -1,0 +1,1 @@
+# Makes `app` a proper Python package so tests can use `from app.cleaning import ...`

@@ -8,3 +8,10 @@ __pycache__/
 
 # Secrets
 .env
+
+# Lambda packaging artifacts
+package/
+function.zip
+
+# OS
+.DS_Store
