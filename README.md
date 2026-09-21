@@ -110,3 +110,9 @@ Upload `function.zip` via the Lambda console (Code → Upload from .zip file). C
 - **Input validation before cleaning** — currently an uploaded file that is missing expected columns (e.g. no `service_id` column) will produce a confusing pandas KeyError rather than a clean 400 with a helpful message.
 - **File size limit** — no guard against someone uploading a 500MB file. API Gateway has a 10MB body limit, but making that explicit in the upload handler with a clear error is better UX.
 - **Rate limiting** — the upload endpoint has no throttling; API Gateway usage plans would be the lightweight fix.
+
+
+**GitHub Repositories:**
+
+- Frontend: https://github.com/vikasyadavgit/earthre-case-study-frontend
+- Backend: https://github.com/vikasyadavgit/earthre-case-study-backend
