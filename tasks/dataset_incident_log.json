@@ -1,0 +1,40 @@
+{
+  "monitoring_checks_9d_seed101.csv": {
+    "days": 9,
+    "start": "2025-05-08",
+    "incidents": {
+      "svc-reports day 5": "check-points 64-69 (~16:00-17:15 UTC)"
+    }
+  },
+  "monitoring_checks_12d_seed505.csv": {
+    "days": 12,
+    "start": "2025-04-10",
+    "incidents": {
+      "svc-search day 4": "check-points 48-67 (~12:00-16:45 UTC)",
+      "svc-search day 8": "check-points 49-54 (~12:15-13:30 UTC)"
+    }
+  },
+  "monitoring_checks_14d_seed202.csv": {
+    "days": 14,
+    "start": "2025-05-19",
+    "incidents": {
+      "svc-notify day 0": "check-points 59-77 (~14:45-19:15 UTC)",
+      "svc-notify day 6": "check-points 30-40 (~07:30-10:00 UTC)"
+    }
+  },
+  "monitoring_checks_21d_seed303.csv": {
+    "days": 21,
+    "start": "2025-04-03",
+    "incidents": {
+      "svc-payments day 2": "check-points 38-60 (~09:30-15:00 UTC)"
+    }
+  },
+  "monitoring_checks_30d_seed404.csv": {
+    "days": 30,
+    "start": "2025-04-06",
+    "incidents": {
+      "svc-auth day 16": "check-points 16-41 (~04:00-10:15 UTC)",
+      "svc-reports day 3": "check-points 47-55 (~11:45-13:45 UTC)"
+    }
+  }
+}
