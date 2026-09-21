@@ -113,7 +113,7 @@ class TestFlagInvalidLatency:
         assert result["is_valid_latency"].tolist() == [True, False, False]
 
 
-class TestClaanDataframePipeline:
+class TestCleanDataframePipeline:
     def test_full_pipeline_runs_and_reports_match(self):
         raw = pd.DataFrame([
             {  # normal row

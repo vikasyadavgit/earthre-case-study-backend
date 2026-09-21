@@ -75,7 +75,7 @@ def deduplicate(df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
     df = df.assign(_missing_count=df.isna().sum(axis=1))
 
     df = df.drop_duplicates(
-        subset=df.columns.difference(["_missing_count"]).tolist() + key_cols,
+        subset=df.columns.difference(["_missing_count"]).tolist(),
         keep="first",
     )
     before_conflict = len(df)

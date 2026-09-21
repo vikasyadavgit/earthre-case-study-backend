@@ -13,8 +13,8 @@ from io import BytesIO
 
 import pandas as pd
 
-from cleaning import clean_dataframe
-from db import insert_rows
+from app.cleaning import clean_dataframe
+from app.db import insert_rows
 
 
 def extract_csv_bytes(event: dict) -> bytes:
@@ -81,11 +81,18 @@ def _get_filename(event: dict) -> str | None:
     return None
 
 
+_CORS_HEADERS = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Headers": "Content-Type,Authorization",
+    "Access-Control-Allow-Methods": "POST,OPTIONS",
+}
+
+
 def _response(status_code: int, body: dict) -> dict:
     """API Gateway expects this exact shape back from Lambda proxy integrations."""
     return {
         "statusCode": status_code,
-        "headers": {"Content-Type": "application/json"},
+        "headers": {"Content-Type": "application/json", **_CORS_HEADERS},
         "body": json.dumps(body),
     }
 
@@ -98,6 +105,15 @@ def handler(event, context):
     run the cleaning pipeline -> write cleaned rows to the DB -> return a
     JSON summary (row counts, what was flagged) for the frontend to show.
     """
+    # Handle CORS preflight — browsers send OPTIONS before every cross-origin POST.
+    # Must return 200 with CORS headers immediately, no body processing.
+    if event.get("httpMethod") == "OPTIONS":
+        return {
+            "statusCode": 200,
+            "headers": _CORS_HEADERS,
+            "body": "",
+        }
+
     try:
         csv_bytes = extract_csv_bytes(event)
     except ValueError as e:
